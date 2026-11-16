@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bahria University Entry Test (CBT Simulator) - Business & Social Sciences</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    /* Custom scrollbar for question palette & review list */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col selection:bg-blue-600 selection:text-white">
+
+  <!-- Top Institutional Header -->
+  <header class="bg-gradient-to-r from-blue-950 via-blue-900 to-indigo-950 text-white shadow-md sticky top-0 z-30">
+    <!-- Persistent Personal Encouragement Bar (Visible on Every Screen) -->
+    <div class="bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 text-white text-center py-1.5 px-4 text-xs sm:text-sm font-bold tracking-wide shadow-xs flex items-center justify-center gap-2">
+      <span>&#10084;&#65039;</span>
+      <span>goodluck kashfi ilysm</span>
+      <span>&#10084;&#65039;</span>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <!-- Crest / Emblem SVG -->
+        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center shrink-0">
+          <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+          </svg>
+        </div>
+        <div>
+          <h1 class="text-base sm:text-lg font-bold tracking-tight leading-tight">BAHRIA UNIVERSITY CBT PORTAL</h1>
+          <p class="text-xs text-blue-200 font-medium">Business, Finance & Social Sciences Entry Test</p>
+        </div>
+      </div>
+
+      <!-- Active Exam Status & Timer (Hidden on Start Screen) -->
+      <div id="header-exam-controls" class="hidden flex items-center gap-3 sm:gap-5">
+        <div class="hidden md:block text-right">
+          <p id="header-student-name" class="text-xs font-semibold text-white">Candidate</p>
+          <p id="header-student-id" class="text-[11px] text-blue-200">ID: BU-2026</p>
+        </div>
+        <div id="timer-box" class="flex items-center gap-2 bg-white/10 border border-white/20 px-3.5 py-1.5 rounded-xl">
+          <svg class="w-4 h-4 text-amber-400 animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span id="timer-display" class="font-mono text-sm sm:text-base font-bold tracking-wider text-white">120:00</span>
+        </div>
+        <button onclick="openSubmitModal()" class="bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-xl shadow transition">
+          Submit Test
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+    <!-- ==================== 1. START / INSTRUCTIONS SCREEN ==================== -->
+    <section id="screen-start" class="max-w-4xl mx-auto">
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+        <!-- Banner -->
+        <div class="bg-gradient-to-r from-blue-900 to-indigo-800 p-6 sm:p-8 text-white">
+          <div class="flex flex-wrap items-center gap-2 mb-3">
+            <span class="inline-block px-3 py-1 rounded-full bg-amber-400/20 border border-amber-400/40 text-amber-300 text-xs font-semibold uppercase tracking-wider">
+              Official Mock Examination Pattern
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-rose-500/25 border border-rose-300/50 text-rose-100 text-xs font-bold tracking-wide">
+              <span>&#10024;</span>
+              <span>This test is specially prepared for Kashfi Zaidi</span>
+            </span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
+            BBA, A&amp;F, Economics, Media, IR &amp; Psychology
+          </h2>
+          <p class="mt-2 text-blue-100 text-sm sm:text-base max-w-2xl">
+            Simulated Computer-Based Test (CBT) structured on Bahria University's entrance syllabus. Complete all 80 MCQs or practice individual subject modules.
+          </p>
+        </div>
+
+        <div class="p-6 sm:p-8 space-y-6">
+          <!-- Test Pattern Cards -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center">
+              <p class="text-xs font-semibold text-slate-500 uppercase">Total Questions</p>
+              <p class="text-2xl font-extrabold text-blue-900 mt-1">80 MCQs</p>
+              <p class="text-[11px] text-slate-500 mt-0.5">20 per subject</p>
+            </div>
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center">
+              <p class="text-xs font-semibold text-slate-500 uppercase">Duration</p>
+              <p class="text-2xl font-extrabold text-blue-900 mt-1">120 Mins</p>
+              <p class="text-[11px] text-slate-500 mt-0.5">30 mins / subject</p>
+            </div>
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center">
+              <p class="text-xs font-semibold text-slate-500 uppercase">Marking Scheme</p>
+              <p class="text-2xl font-extrabold text-emerald-600 mt-1">+1 / 0</p>
+              <p class="text-[11px] text-slate-500 mt-0.5">No negative marking</p>
+            </div>
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center">
+              <p class="text-xs font-semibold text-slate-500 uppercase">Difficulty Mix</p>
+              <p class="text-lg font-extrabold text-indigo-900 mt-1.5">10E · 5M · 5H</p>
+              <p class="text-[11px] text-slate-500 mt-1">Per 20-MCQ section</p>
+            </div>
+          </div>
+
+          <!-- Syllabus & Difficulty Breakdown Table -->
+          <div class="border border-slate-200 rounded-xl overflow-hidden">
+            <div class="bg-slate-100 px-4 py-2.5 border-b border-slate-200 flex items-center justify-between">
+              <h3 class="text-xs sm:text-sm font-bold text-slate-700 uppercase tracking-wider">Subject &amp; Difficulty Distribution</h3>
+              <span class="text-xs text-slate-500">4 Core Sections</span>
+            </div>
+            <div class="divide-y divide-slate-200 text-sm">
+              <div class="p-3.5 sm:px-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                  <span class="font-bold text-slate-800">1. Quantitative / Mathematics</span>
+                  <p class="text-xs text-slate-500">Percentages, ratios, algebra, word problems, geometry (no calculus)</p>
+                </div>
+                <div class="flex items-center gap-1.5 shrink-0">
+                  <span class="px-2 py-0.5 rounded-md text-xs font-semibold bg-emerald-100 text-emerald-800">10 Easy</span>
+                  <span class="px-2 py-0.5 rounded-md text-xs font-semibold bg-amber-100 text-amber-800">5 Medium</span>
+                  <span class="px-2 py-0.5 rounded-md text-xs font-semibold bg-rose-100 text-rose-800">5 Hard</span>
+                </div>
+              </div>
+              <div class="p-3.5 sm:px-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                  <span class="font-bold text-slate-800">2. English (Grammar &amp; Comprehension)</span>
+                  <p class="text-xs text-slate-500">Prepositions, tenses, vocabulary, idioms, active/passive &amp; sentence correction</p>
+                </div>
+                <div class="flex items-center gap-1.5 shrink-0">
+                  <span class="px-2 py-0.5 rounded-md text-xs font-semibold bg-emerald-100 text-emerald-800">10 Easy</span>
+                  <span class="px-2 py-0.5 rounded-md text-xs font-semibold bg-amber-100 text-amber-800">5 Medium</span>
+                  <span class="px-2 py-0.5 rounded-md text-xs font-semibold bg-rose-100 text-rose-800">5 Hard</span>
+                </div>
+              </div>
+              <div class="p-3.5 sm:px-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                  <span class="font-bold text-slate-800">3. Analytical Reasoning / IQ</span>
+                  <p class="text-xs text-slate-500">Number/letter series, coding-decoding, logic deductions &amp; seating puzzles</p>
+                </div>
+                <div class="flex items-center gap-1.5 shrink-0">
+                  <span class="px-2 py-0.5 rounded-md text-xs font-semibold bg-emerald-100 text-emerald-800">10 Easy</span>
+                  <span class="px-2 py-0.5 rounded-md text-xs font-semibold bg-amber-100 text-amber-800">5 Medium</span>
+                  <span class="px-2 py-0.5 rounded-md text-xs font-semibold bg-rose-100 text-rose-800">5 Hard</span>
+                </div>
+              </div>
+              <div class="p-3.5 sm:px-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                  <span class="font-bold text-slate-800">4. General Knowledge &amp; Basic Science</span>
+                  <p class="text-xs text-slate-500">Pakistan affairs, world organizations, geography &amp; everyday general science</p>
+                </div>
+                <div class="flex items-center gap-1.5 shrink-0">
+                  <span class="px-2 py-0.5 rounded-md text-xs font-semibold bg-emerald-100 text-emerald-800">10 Easy</span>
+                  <span class="px-2 py-0.5 rounded-md text-xs font-semibold bg-amber-100 text-amber-800">5 Medium</span>
+                  <span class="px-2 py-0.5 rounded-md text-xs font-semibold bg-rose-100 text-rose-800">5 Hard</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Student Details Form -->
+          <div class="bg-blue-50/70 border border-blue-100 rounded-xl p-5 space-y-4">
+            <h3 class="text-sm font-bold text-blue-950">Candidate Details &amp; Mode Selection</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <label for="input-name" class="block text-xs font-semibold text-slate-700 mb-1">Full Name</label>
+                <input id="input-name" type="text" value="Kashfi Zaidi" placeholder="e.g., Kashfi Zaidi" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-600" />
+              </div>
+              <div>
+                <label for="input-roll" class="block text-xs font-semibold text-slate-700 mb-1">Roll / Application ID (Optional)</label>
+                <input id="input-roll" type="text" placeholder="e.g., BU-KHI-4092" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-600" />
+              </div>
+              <div>
+                <label for="input-mode" class="block text-xs font-semibold text-slate-700 mb-1">Exam Mode</label>
+                <select id="input-mode" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-600">
+                  <option value="ALL">Full Mock Test (All 80 Questions · 120 Mins)</option>
+                  <option value="Math">Quantitative Math Only (20 Questions · 30 Mins)</option>
+                  <option value="English">English Only (20 Questions · 30 Mins)</option>
+                  <option value="Analytical">Analytical / IQ Only (20 Questions · 30 Mins)</option>
+                  <option value="GK">General Knowledge Only (20 Questions · 30 Mins)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p class="text-xs text-slate-600">
+                <span class="font-semibold text-blue-900">Tip:</span> You can jump between questions, mark items for review, and view full step-by-step explanations after submitting.
+              </p>
+              <button onclick="startExam()" class="w-full sm:w-auto bg-blue-900 hover:bg-blue-800 active:scale-95 text-white font-bold text-sm px-7 py-3.5 rounded-xl shadow-md transition flex items-center justify-center gap-2 shrink-0">
+                <span>Start CBT Examination</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 2. ACTIVE CBT EXAM SCREEN ==================== -->
+    <section id="screen-exam" class="hidden space-y-5">
+      <!-- Subject Filter Tabs (Shown when in Full Mock Mode) -->
+      <div id="subject-tabs-bar" class="bg-white p-2 rounded-2xl shadow-sm border border-slate-200 flex flex-wrap gap-2">
+        <button onclick="jumpToSubject('Math')" data-sub="Math" class="subject-tab flex-1 min-w-[130px] px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition text-center">
+          Quantitative Math <span class="sub-count text-xs opacity-80">(0/20)</span>
+        </button>
+        <button onclick="jumpToSubject('English')" data-sub="English" class="subject-tab flex-1 min-w-[130px] px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition text-center">
+          English <span class="sub-count text-xs opacity-80">(0/20)</span>
+        </button>
+        <button onclick="jumpToSubject('Analytical')" data-sub="Analytical" class="subject-tab flex-1 min-w-[130px] px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition text-center">
+          Analytical / IQ <span class="sub-count text-xs opacity-80">(0/20)</span>
+        </button>
+        <button onclick="jumpToSubject('GK')" data-sub="GK" class="subject-tab flex-1 min-w-[130px] px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition text-center">
+          General Knowledge <span class="sub-count text-xs opacity-80">(0/20)</span>
+        </button>
+      </div>
+
+      <!-- Main 2-Column CBT Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        
+        <!-- Left/Main Question Card (8 cols) -->
+        <div class="lg:col-span-8 bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between min-h-[460px]">
+          <div>
+            <!-- Question Meta Header -->
+            <div class="px-5 py-4 border-b border-slate-200 flex flex-wrap items-center justify-between gap-2 bg-slate-50/70 rounded-t-2xl">
+              <div class="flex items-center gap-2.5">
+                <span id="q-number-badge" class="bg-blue-900 text-white text-xs font-bold px-3 py-1 rounded-lg">
+                  Question 1 of 80
+                </span>
+                <span id="q-subject-badge" class="bg-indigo-100 text-indigo-900 text-xs font-semibold px-2.5 py-1 rounded-lg">
+                  Quantitative Math
+                </span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span id="q-difficulty-badge" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                  Easy
+                </span>
+              </div>
+            </div>
+
+            <!-- Question Body -->
+            <div class="p-5 sm:p-7">
+              <div id="q-text" class="text-base sm:text-lg font-semibold text-slate-900 leading-relaxed whitespace-pre-line">
+                Loading question...
+              </div>
+
+              <!-- Options Container -->
+              <div id="q-options" class="mt-6 space-y-3">
+                <!-- Options injected dynamically -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Question Footer Navigation Controls -->
+          <div class="px-5 py-4 bg-slate-50 border-t border-slate-200 rounded-b-2xl flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2">
+              <button onclick="clearCurrentResponse()" class="px-3.5 py-2 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 text-slate-700 text-xs sm:text-sm font-semibold transition">
+                Clear Response
+              </button>
+              <button id="btn-mark-review" onclick="toggleMarkReview()" class="px-3.5 py-2 rounded-xl border border-amber-300 bg-amber-50 hover:bg-amber-100 text-amber-800 text-xs sm:text-sm font-semibold transition flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                <span id="mark-review-text">Mark for Review</span>
+              </button>
+            </div>
+
+            <div class="flex items-center gap-2 ml-auto">
+              <button id="btn-prev" onclick="navigateQuestion(-1)" class="px-4 py-2 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 disabled:opacity-40 disabled:pointer-events-none text-slate-800 text-xs sm:text-sm font-semibold transition">
+                &larr; Previous
+              </button>
+              <button id="btn-next" onclick="navigateQuestion(1)" class="px-5 py-2 rounded-xl bg-blue-900 hover:bg-blue-800 text-white text-xs sm:text-sm font-semibold shadow-sm transition">
+                Save &amp; Next &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Question Palette Sidebar (4 cols) -->
+        <aside class="lg:col-span-4 bg-white rounded-2xl shadow-sm border border-slate-200 p-5 space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+            <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider">Question Palette</h3>
+            <span id="palette-progress-text" class="text-xs font-bold text-blue-900 bg-blue-50 px-2.5 py-1 rounded-lg">0 / 80 Answered</span>
+          </div>
+
+          <!-- Legend -->
+          <div class="grid grid-cols-2 gap-2 text-xs text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-100">
+            <div class="flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded bg-emerald-500 inline-block shrink-0"></span>
+              <span>Answered (<strong id="count-answered">0</strong>)</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded bg-slate-200 border border-slate-300 inline-block shrink-0"></span>
+              <span>Unanswered (<strong id="count-unanswered">80</strong>)</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded bg-amber-400 inline-block shrink-0"></span>
+              <span>Marked Review (<strong id="count-review">0</strong>)</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded ring-2 ring-blue-700 bg-white inline-block shrink-0"></span>
+              <span>Current Question</span>
+            </div>
+          </div>
+
+          <!-- Palette Grid -->
+          <div id="question-palette-grid" class="grid grid-cols-5 sm:grid-cols-8 lg:grid-cols-5 gap-2 max-h-[320px] overflow-y-auto pr-1">
+            <!-- Buttons generated dynamically -->
+          </div>
+
+          <div class="pt-2 border-t border-slate-200">
+            <button onclick="openSubmitModal()" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow transition">
+              Finish &amp; Submit Exam
+            </button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==================== 3. RESULTS & ANALYTICS SCREEN ==================== -->
+    <section id="screen-results" class="hidden space-y-6">
+      <!-- Score Hero Card -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+        <div class="bg-gradient-to-r from-blue-950 via-blue-900 to-indigo-900 p-6 sm:p-8 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div>
+            <span class="inline-block px-3 py-1 rounded-full bg-emerald-400/20 border border-emerald-300/30 text-emerald-300 text-xs font-semibold uppercase tracking-wider mb-2">
+              Examination Completed
+            </span>
+            <h2 id="res-candidate-heading" class="text-2xl sm:text-3xl font-extrabold">Candidate Scorecard</h2>
+            <p id="res-subtitle" class="text-blue-200 text-sm mt-1">Bahria University Entry Test Mock Examination</p>
+          </div>
+
+          <div class="flex items-center gap-4 bg-white/10 border border-white/20 rounded-2xl p-4 sm:px-6">
+            <div class="text-center">
+              <p class="text-xs text-blue-200 uppercase font-semibold">Total Score</p>
+              <p id="res-score-big" class="text-3xl sm:text-4xl font-extrabold text-amber-400 mt-0.5">0 / 80</p>
+            </div>
+            <div class="h-10 w-px bg-white/20"></div>
+            <div class="text-center">
+              <p class="text-xs text-blue-200 uppercase font-semibold">Percentage</p>
+              <p id="res-percentage-big" class="text-3xl sm:text-4xl font-extrabold text-white mt-0.5">0%</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Stat Metrics -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-200 bg-slate-50 border-b border-slate-200">
+          <div class="p-4 text-center">
+            <p class="text-xs font-semibold text-slate-500 uppercase">Correct Answers</p>
+            <p id="res-correct" class="text-xl font-extrabold text-emerald-600 mt-1">0</p>
+          </div>
+          <div class="p-4 text-center">
+            <p class="text-xs font-semibold text-slate-500 uppercase">Incorrect Answers</p>
+            <p id="res-incorrect" class="text-xl font-extrabold text-rose-600 mt-1">0</p>
+          </div>
+          <div class="p-4 text-center">
+            <p class="text-xs font-semibold text-slate-500 uppercase">Unattempted</p>
+            <p id="res-unattempted" class="text-xl font-extrabold text-slate-600 mt-1">0</p>
+          </div>
+          <div class="p-4 text-center">
+            <p class="text-xs font-semibold text-slate-500 uppercase">Time Taken</p>
+            <p id="res-time-taken" class="text-xl font-extrabold text-blue-900 mt-1">00:00</p>
+          </div>
+        </div>
+
+        <!-- Detailed Subject & Difficulty Analytics -->
+        <div class="p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Subject-wise Breakdown -->
+          <div class="border border-slate-200 rounded-xl p-5">
+            <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4">Subject-Wise Performance</h3>
+            <div id="res-subject-bars" class="space-y-4">
+              <!-- Injected dynamically -->
+            </div>
+          </div>
+
+          <!-- Difficulty-wise Breakdown -->
+          <div class="border border-slate-200 rounded-xl p-5 flex flex-col justify-between">
+            <div>
+              <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4">Difficulty-Level Accuracy</h3>
+              <div id="res-difficulty-cards" class="grid grid-cols-3 gap-3">
+                <!-- Injected dynamically -->
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+              <p id="res-merit-remark" class="text-xs sm:text-sm font-medium text-slate-700">
+                Keep practicing to boost your Bahria University CBT merit score!
+              </p>
+              <button onclick="resetToStart()" class="px-4 py-2 rounded-xl bg-blue-900 hover:bg-blue-800 text-white text-xs font-bold shadow transition">
+                Retake Test
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full Answer Key & Step-by-Step Explanations -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
+          <div>
+            <h3 class="text-lg font-bold text-slate-900">Answer Key &amp; Detailed Explanations</h3>
+            <p class="text-xs text-slate-500">Review every question, your selected option, and the step-by-step solution.</p>
+          </div>
+
+          <!-- Review Filters -->
+          <div class="flex flex-wrap gap-2">
+            <select id="review-filter-status" onchange="renderReviewList()" class="px-3 py-2 rounded-xl border border-slate-300 text-xs font-semibold bg-white focus:outline-none focus:ring-2 focus:ring-blue-600">
+              <option value="ALL">All Questions</option>
+              <option value="INCORRECT">Incorrect Only</option>
+              <option value="CORRECT">Correct Only</option>
+              <option value="UNATTEMPTED">Unattempted Only</option>
+            </select>
+            <select id="review-filter-subject" onchange="renderReviewList()" class="px-3 py-2 rounded-xl border border-slate-300 text-xs font-semibold bg-white focus:outline-none focus:ring-2 focus:ring-blue-600">
+              <option value="ALL">All Subjects</option>
+              <option value="Math">Quantitative Math</option>
+              <option value="English">English</option>
+              <option value="Analytical">Analytical / IQ</option>
+              <option value="GK">General Knowledge</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="review-questions-container" class="space-y-4">
+          <!-- Review items injected dynamically -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Custom Submit Confirmation Modal (No native confirm/alert) -->
+  <div id="submit-modal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-xl border border-slate-200 space-y-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-base font-bold text-slate-900">Submit Examination?</h3>
+          <p class="text-xs text-slate-500">Once submitted, you cannot modify your answers.</p>
+        </div>
+      </div>
+
+      <div id="modal-summary-box" class="bg-slate-50 rounded-xl p-3.5 border border-slate-200 text-xs space-y-1.5 text-slate-700">
+        <!-- Summary injected -->
+      </div>
+
+      <div class="flex items-center justify-end gap-2.5 pt-2">
+        <button onclick="closeSubmitModal()" class="px-4 py-2 rounded-xl border border-slate-300 hover:bg-slate-100 text-slate-700 text-xs font-semibold transition">
+          Return to Test
+        </button>
+        <button onclick="finishExam()" class="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow transition">
+          Confirm &amp; View Result
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-4 mt-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+      <p>Bahria University Entry Test Simulator &bull; Business, Finance &amp; Social Sciences Stream</p>
+      <p class="font-bold text-rose-600">goodluck kashfi ilysm &#10084;&#65039;</p>
+      <p>80 MCQs (20 Math &bull; 20 English &bull; 20 Analytical/IQ &bull; 20 General Knowledge)</p>
+    </div>
+  </footer>
+
+  <script>
+    /**
+     * COMPLETE 80-QUESTION BANK
+     * Structured strictly according to Bahria University Entry Test Syllabus:
+     * 4 Subjects x 20 Questions each (10 Easy, 5 Medium, 5 Hard)
+     */
+    const QUESTION_BANK = [
+      // ==================== SECTION A: QUANTITATIVE / MATHEMATICS (20) ====================
+      // Easy (1-10)
+      {
+        id: 1, subject: 'Math', subjectLabel: 'Quantitative Math', difficulty: 'Easy',
+        question: 'What is 15% of 240?',
+        options: ['32', '36', '40', '48'],
+        answer: 1,
+        explanation: '15% of 240 = (15 / 100) × 240 = 0.15 × 240 = 36.'
+      },
+      {
+        id: 2, subject: 'Math', subjectLabel: 'Quantitative Math', difficulty: 'Easy',
+        question: 'Solve for x: 3x - 5 = 16',
+        options: ['5', '6', '7', '8'],
+        answer: 2,
+        explanation: 'Add 5 to both sides: 3x = 16 + 5 = 21. Divide by 3: x = 21 / 3 = 7.'
+      },
+      {
+        id: 3, subject: 'Math', subjectLabel: 'Quantitative Math', difficulty: 'Easy',
+        question: 'If the ratio of boys to girls in a class is 3 : 2 and there are 30 boys, how many girls are there?',
+        options: ['15', '18', '20', '25'],
+        answer: 2,
+        explanation: 'Let boys = 3x and girls = 2x. Given 3x = 30, so x = 10. Therefore, girls = 2 × 10 = 20.'
+      },
+      {
+        id: 4, subject: 'Math', subjectLabel: 'Quantitative Math', difficulty: 'Easy',
+        question: 'What is the perimeter of a rectangle with length 12 cm and width 8 cm?',
+        options: ['20 cm', '40 cm', '96 cm', '48 cm'],
+        answer: 1,
+        explanation: 'Perimeter = 2 × (Length + Width) = 2 × (12 + 8) = 2 × 20 = 40 cm.'
+      },
+      {
+        id: 5, subject: 'Math', subjectLabel: 'Quantitative Math', difficulty: 'Easy',
+        question: 'Simplify the algebraic expression: 2(x + 3) - 4',
+        options: ['2x + 2', '2x - 1', '2x + 6', '2x + 10'],
+        answer: 0,
+        explanation: 'Expand brackets: 2x + 6 - 4 = 2x + 2.'
+      },
+      {
+        id: 6, subject: 'Math', subjectLabel: 'Quantitative Math', difficulty: 'Easy',
+        question: 'If a car travels at a constant speed of 60 km/h, how long will it take to cover 180 km?',
+        options: ['2 hours', '2.5 hours', '3 hours', '4 hours'],
+        answer: 2,
+        explanation: 'Time = Distance / Speed = 180 km / 60 km/h = 3 hours.'
+      },
+      {
+        id: 7, subject: 'Math', subjectLabel: 'Quantitative Math', difficulty: 'Easy',
+        question: 'Find the area of a circle with a radius of 7 cm (use π = 22/7).',
+        options: ['44 cm²', '88 cm²', '154 cm²', '308 cm²'],
+        answer: 2,
+        explanation: 'Area = πr² = (22/7) × 7 × 7 = 22 × 7 = 154 cm².'
+      },
+      {
+        id: 8, subject: 'Math', subjectLabel: 'Quantitative Math', difficulty: 'Easy',
+        question: 'Express the fraction 3/5 as a percentage.',
+        options: ['30%', '50%', '60%', '75%'],
+        answer: 2,
+        explanation: '(3 / 5) × 100% = 0.6 × 100% = 60%.'
+      },
+      {
+        id: 9, subject: 'Math', subjectLabel: 'Quantitative Math', difficulty: 'Easy',
+        question: 'What is the arithmetic average of 12, 18, 24, and 30?',
+        options: ['20', '21', '22', '24'],
+        answer: 1,
+        explanation: 'Average = (12 + 18 + 24 + 30) / 4 = 84 / 4 = 21.'
+      },
+      {
+        id: 10, subject: 'Math', subjectLabel: 'Quantitative Math', difficulty: 'Easy',
+        question: 'Solve for y: (y / 4) + 3 = 9',
+        options: ['18', '20', '24', '28'],
+        answer: 2,
+        explanation: 'Subtract 3 from both sides: y / 4 = 6. Multiply by 4: y = 24.'
+      },
+      // Medium (11-15)
+      {
+        id: 11, subject: 'Math', subjectLabel: 'Quantitative Math', difficulty: 'Medium',
+        question: 'An item originally priced at Rs. 1,200 is sold at a 25% discount, and then a 10% GST is applied on the discounted price. What is the final customer price?',
+        options: ['Rs. 945', 'Rs. 990', 'Rs. 1,020', 'Rs. 1,050'],
+        answer: 1,
+        explanation: 'Price after 25% discount = 1200 × 0.75 = Rs. 900. Adding 10% GST = 900 × 1.10 = Rs. 990.'
+      },
+      {
+        id: 12, subject: 'Math', subjectLabel: 'Quantitative Math', difficulty: 'Medium',
+        question: 'If 5^(x + 1) = 125, what is the value of x?',
+        options: ['1', '2', '3', '4'],
+        answer: 1,
+        explanation: 'Since 125 = 5³, we have 5^(x + 1) = 5³. Equating exponents: x + 1 = 3 ⇒ x = 2.'
+      },
+      {
+        id: 13, subject: 'Math', subjectLabel: 'Quantitative Math', difficulty: 'Medium',
+        question: 'The average age of a group of 5 workers is 28 years. If the manager\'s age is included, the average age increases by 2 years. What is the age of the manager?',
+        options: ['38 years', '40 years', '42 years', '45 years'],
+        answer: 1,
+        explanation: 'Sum of 5 workers = 5 × 28 = 140. With manager (6 people), new average = 30, total sum = 6 × 30 = 180. Manager\'s age = 180 - 140 = 40 years.'
+      },
+      {
+        id: 14, subject: 'Math', subjectLabel: 'Quantitative Math', difficulty: 'Medium',
+        question: 'Two numbers are in the ratio 4 : 5. If their sum is 135, what is the value of the smaller number?',
+        options: ['50', '54', '60', '72'],
+        answer: 2,
+        explanation: '4x + 5x = 135 ⇒ 9x = 135 ⇒ x = 15. Smaller number = 4 × 15 = 60.'
+      },
+      {
+        id: 15, subject: 'Math', subjectLabel: 'Quantitative Math', difficulty: 'Medium',
+        question: 'A container is filled with milk and water in the ratio 7 : 3. If 20 liters of the mixture are drawn off and replaced with pure water, the ratio becomes 3 : 2. What was the initial quantity of the mixture?',
+        options: ['100 liters', '120 liters', '140 liters', '160 liters'],
+        answer: 2,
+        explanation: 'Let initial milk = 7x, water = 3x (total 10x). Removing 20L removes 14L milk and 6L water. Adding 20L water gives: (7x - 14) / (3x + 14) = 3/2 ⇒ 14x - 28 = 9x + 42 ⇒ 5x = 70 ⇒ x = 14. Total = 10 × 14 = 140 liters.'
+      },
+      // Hard (16-20)
+      {
+        id: 16, subject: 'Math', subjectLabel: 'Quantitative Math', difficulty: 'Hard',
+        question: 'A shopkeeper mixes two varieties of tea worth Rs. 160/kg and Rs. 240/kg in a certain ratio so that by selling the mixture at Rs. 220/kg, he makes a profit of 10%. In what ratio must he mix them?',
+        options: ['3 : 2', '1 : 1', '2 : 3', '3 : 4'],
+        answer: 1,
+        explanation: 'Cost price of mixture = 220 / 1.10 = Rs. 200/kg. By rule of alligation: (240 - 200) : (200 - 160) = 40 : 40 = 1 : 1.'
+      },
+      {
+        id: 17, subject: 'Math', subjectLabel: 'Quantitative Math', difficulty: 'Hard',
+        question: 'Pipe A can fill an empty tank in 6 hours, and Pipe B can fill it in 8 hours. Pipe C can empty the full tank in 12 hours. If all three pipes are opened simultaneously, how long will it take to fill the empty tank?',
+        options: ['4 4/5 hours', '5 1/3 hours', '6 1/2 hours', '7 1/4 hours'],
+        answer: 0,
+        explanation: 'Net part filled in 1 hour = 1/6 + 1/8 - 1/12 = (4 + 3 - 2)/24 = 5/24. Time taken = 24/5 = 4 4/5 hours (4.8 hours).'
+      },
+      {
+        id: 18, subject: 'Math', subjectLabel: 'Quantitative Math', difficulty: 'Hard',
+        question: 'The present ages of a father and his son are in the ratio 7 : 3. After 10 years, their ages will be in the ratio 2 : 1. What is the present age of the father?',
+        options: ['42 years', '56 years', '63 years', '70 years'],
+        answer: 3,
+        explanation: '(7x + 10) / (3x + 10) = 2 / 1 ⇒ 7x + 10 = 6x + 20 ⇒ x = 10. Father\'s present age = 7 × 10 = 70 years.'
+      },
+      {
+        id: 19, subject: 'Math', subjectLabel: 'Quantitative Math', difficulty: 'Hard',
+        question: 'If the radius of a right circular cylinder is decreased by 20% while its height is increased by 20%, what is the net percentage change in its volume?',
+        options: ['-15.2%', '-23.2%', '0%', '+4.8%'],
+        answer: 1,
+        explanation: 'V = πr²h. New volume multiplier = (0.8)² × (1.2) = 0.64 × 1.2 = 0.768. Net change = 0.768 - 1 = -0.232, which is -23.2%.'
+      },
+      {
+        id: 20, subject: 'Math', subjectLabel: 'Quantitative Math', difficulty: 'Hard',
+        question: 'A train running at 72 km/h crosses a 250-meter-long platform in 25 seconds. What is the length of the train?',
+        options: ['150 meters', '200 meters', '250 meters', '300 meters'],
+        answer: 2,
+        explanation: 'Speed = 72 × (5/18) = 20 m/s. Total distance covered in 25s = 20 × 25 = 500 m. Train length = 500 - 250 = 250 meters.'
+      },
+
+      // ==================== SECTION B: ENGLISH (20) ====================
+      // Easy (21-30)
+      {
+        id: 21, subject: 'English', subjectLabel: 'English', difficulty: 'Easy',
+        question: 'Choose the correct preposition: "She is very good _____ painting portraits."',
+        options: ['in', 'at', 'on', 'with'],
+        answer: 1,
+        explanation: 'The adjective "good" takes the preposition "at" when referring to skill or proficiency in an activity.'
+      },
+      {
+        id: 22, subject: 'English', subjectLabel: 'English', difficulty: 'Easy',
+        question: 'Select the synonym of the word "Benevolent":',
+        options: ['Cruel', 'Kind', 'Greedy', 'Proud'],
+        answer: 1,
+        explanation: '"Benevolent" means well-meaning, charitable, and kind.'
+      },
+      {
+        id: 23, subject: 'English', subjectLabel: 'English', difficulty: 'Easy',
+        question: 'Identify the correct spelling:',
+        options: ['Accomodation', 'Accommodation', 'Acommodation', 'Acomodation'],
+        answer: 1,
+        explanation: '"Accommodation" is spelled with a double "c" and a double "m".'
+      },
+      {
+        id: 24, subject: 'English', subjectLabel: 'English', difficulty: 'Easy',
+        question: 'Choose the antonym of "Abundant":',
+        options: ['Plentiful', 'Scarce', 'Ample', 'Copious'],
+        answer: 1,
+        explanation: '"Abundant" means existing in large quantities; its direct opposite is "Scarce".'
+      },
+      {
+        id: 25, subject: 'English', subjectLabel: 'English', difficulty: 'Easy',
+        question: 'Complete the sentence: "Neither the teacher nor the students _____ present in the classroom."',
+        options: ['was', 'were', 'is', 'has'],
+        answer: 1,
+        explanation: 'With "neither...nor", the verb agrees with the subject closer to it ("students", which is plural), requiring "were".'
+      },
+      {
+        id: 26, subject: 'English', subjectLabel: 'English', difficulty: 'Easy',
+        question: 'Choose the correct article: "He hopes to join _____ university in Karachi next year."',
+        options: ['an', 'the', 'a', 'no article'],
+        answer: 2,
+        explanation: '"University" begins with a consonant sound (/juː/), so the indefinite article "a" is used.'
+      },
+      {
+        id: 27, subject: 'English', subjectLabel: 'English', difficulty: 'Easy',
+        question: 'What is the past participle of the verb "Begin"?',
+        options: ['Began', 'Begun', 'Beginning', 'Begined'],
+        answer: 1,
+        explanation: 'The principal parts of the irregular verb are: begin (base), began (past simple), begun (past participle).'
+      },
+      {
+        id: 28, subject: 'English', subjectLabel: 'English', difficulty: 'Easy',
+        question: 'Choose the correct plural form of "Crisis":',
+        options: ['Crisises', 'Crisis', 'Crises', 'Crisii'],
+        answer: 2,
+        explanation: 'Nouns of Greek origin ending in "-is" change to "-es" in the plural form (crisis → crises).'
+      },
+      {
+        id: 29, subject: 'English', subjectLabel: 'English', difficulty: 'Easy',
+        question: 'Select the grammatically correct sentence:',
+        options: ["She don't like coffee.", "She doesn't likes coffee.", "She doesn't like coffee.", "She not like coffee."],
+        answer: 2,
+        explanation: 'Third-person singular negative in present simple uses "doesn\'t" followed by the base form of the verb ("like").'
+      },
+      {
+        id: 30, subject: 'English', subjectLabel: 'English', difficulty: 'Easy',
+        question: 'Identify the part of speech of the word "quickly" in the sentence: "He ran quickly to catch the bus."',
+        options: ['Noun', 'Adjective', 'Adverb', 'Verb'],
+        answer: 2,
+        explanation: '"Quickly" modifies the verb "ran" by describing how the action was performed, making it an adverb.'
+      },
+      // Medium (31-35)
+      {
+        id: 31, subject: 'English', subjectLabel: 'English', difficulty: 'Medium',
+        question: 'Choose the word that best fills the blank: "Despite facing severe financial hardships, she managed to maintain her _____ and dignity."',
+        options: ['insolence', 'equanimity', 'turbulence', 'agitation'],
+        answer: 1,
+        explanation: '"Equanimity" means mental calmness, composure, and evenness of temper, especially in a difficult situation.'
+      },
+      {
+        id: 32, subject: 'English', subjectLabel: 'English', difficulty: 'Medium',
+        question: 'Identify the sentence that contains a spelling or usage error:',
+        options: [
+          'Hardley had I arrived at the station when the train departed.',
+          'One of my friends is visiting Islamabad today.',
+          'Neither of the two options is acceptable.',
+          'She asked me where I was going.'
+        ],
+        answer: 0,
+        explanation: '"Hardley" is misspelled; the correct spelling is "Hardly".'
+      },
+      {
+        id: 33, subject: 'English', subjectLabel: 'English', difficulty: 'Medium',
+        question: 'Choose the correct indirect speech for: He said to me, "Where are you going?"',
+        options: [
+          'He asked me where I am going.',
+          'He asked me where were you going.',
+          'He asked me where I was going.',
+          'He told me where you are going.'
+        ],
+        answer: 2,
+        explanation: 'In indirect questions, present continuous ("are going") shifts to past continuous ("was going") with declarative word order ("I was").'
+      },
+      {
+        id: 34, subject: 'English', subjectLabel: 'English', difficulty: 'Medium',
+        question: 'Select the word closest in meaning to "Ephemeral":',
+        options: ['Permanent', 'Transient', 'Transparent', 'Eternal'],
+        answer: 1,
+        explanation: '"Ephemeral" means lasting for a very short time, which is synonymous with "Transient".'
+      },
+      {
+        id: 35, subject: 'English', subjectLabel: 'English', difficulty: 'Medium',
+        question: 'Choose the sentence with proper subject-verb agreement and grammar:',
+        options: [
+          'The committee have reached its decision after long discussions.',
+          'The committee has reached its decision after long discussions.',
+          'The committee have reached their decision collectively.',
+          'Committee has reach a final verdict.'
+        ],
+        answer: 1,
+        explanation: 'When a collective noun ("committee") acts as a single unified body, it takes a singular verb ("has") and singular pronoun ("its").'
+      },
+      // Hard (36-40)
+      {
+        id: 36, subject: 'English', subjectLabel: 'English', difficulty: 'Hard',
+        question: 'Choose the option that best expresses the meaning of the idiom "To burn the candle at both ends":',
+        options: [
+          'To waste resources unnecessarily on luxuries.',
+          'To overwork oneself by working late at night and waking up early.',
+          'To create unnecessary conflict in a stable situation.',
+          'To act with extreme caution and hesitation.'
+        ],
+        answer: 1,
+        explanation: 'The idiom means exhausting one\'s energy or resources by overworking day and night.'
+      },
+      {
+        id: 37, subject: 'English', subjectLabel: 'English', difficulty: 'Hard',
+        question: 'Select the word that is an antonym for "Obfuscate":',
+        options: ['Clarify', 'Complicate', 'Conceal', 'Bewilder'],
+        answer: 0,
+        explanation: '"Obfuscate" means to make obscure, unclear, or unintelligible. Its antonym is "Clarify".'
+      },
+      {
+        id: 38, subject: 'English', subjectLabel: 'English', difficulty: 'Hard',
+        question: 'Identify the correct passive voice form: “The board of directors is reviewing the corporate merger proposal.”',
+        options: [
+          'The corporate merger proposal is reviewed by the board of directors.',
+          'The corporate merger proposal is being reviewed by the board of directors.',
+          'The corporate merger proposal was reviewed by the board.',
+          'The corporate merger proposal has been reviewed by the board.'
+        ],
+        answer: 1,
+        explanation: 'Present continuous active ("is reviewing") converts to present continuous passive ("is being reviewed").'
+      },
+      {
+        id: 39, subject: 'English', subjectLabel: 'English', difficulty: 'Hard',
+        question: 'Fill in the blank with the most contextually accurate word: "His _____ arguments during the board meeting convinced everyone to alter the strategic marketing plan."',
+        options: ['nebulous', 'cogent', 'superficial', 'redundant'],
+        answer: 1,
+        explanation: '"Cogent" means clear, logical, and convincing—fitting an argument that persuaded the board.'
+      },
+      {
+        id: 40, subject: 'English', subjectLabel: 'English', difficulty: 'Hard',
+        question: 'Select the correct revision for: “A fleet of ships were spotted near the coastline yesterday morning.”',
+        options: [
+          'A fleet of ships were sighted near the coastline yesterday morning.',
+          'A fleet of ships was spotted near the coastline yesterday morning.',
+          'A fleet of ships were spotted by the coastline yesterday.',
+          'Fleets of ship were spotted near the coastline yesterday.'
+        ],
+        answer: 1,
+        explanation: 'The subject is the singular collective noun "A fleet" (not "ships"), so it requires the singular verb "was".'
+      },
+
+      // ==================== SECTION C: ANALYTICAL REASONING / IQ (20) ====================
+      // Easy (41-50)
+      {
+        id: 41, subject: 'Analytical', subjectLabel: 'Analytical / IQ', difficulty: 'Easy',
+        question: 'Find the missing number in the series: 2, 6, 12, 20, 30, ?',
+        options: ['40', '42', '44', '48'],
+        answer: 1,
+        explanation: 'The differences between consecutive terms increase by 2: +4, +6, +8, +10, so next is +12 → 30 + 12 = 42.'
+      },
+      {
+        id: 42, subject: 'Analytical', subjectLabel: 'Analytical / IQ', difficulty: 'Easy',
+        question: 'If CAT is coded as XZG, how is DOG coded under the same reverse alphabet rule?',
+        options: ['WLT', 'CLT', 'WMT', 'VLT'],
+        answer: 0,
+        explanation: 'Each letter is replaced by its opposite pair in the alphabet (A↔Z, B↔Y...): D↔W, O↔L, G↔T → WLT.'
+      },
+      {
+        id: 43, subject: 'Analytical', subjectLabel: 'Analytical / IQ', difficulty: 'Easy',
+        question: 'What comes next in the letter series: Z, X, V, T, R, ?',
+        options: ['P', 'Q', 'O', 'N'],
+        answer: 0,
+        explanation: 'Moving backward through the alphabet skipping one letter each step: Z (-2) X (-2) V (-2) T (-2) R (-2) P.'
+      },
+      {
+        id: 44, subject: 'Analytical', subjectLabel: 'Analytical / IQ', difficulty: 'Easy',
+        question: 'If yesterday was Wednesday, what day of the week will be the day after tomorrow?',
+        options: ['Friday', 'Saturday', 'Sunday', 'Thursday'],
+        answer: 1,
+        explanation: 'Yesterday = Wednesday ⇒ Today = Thursday ⇒ Tomorrow = Friday ⇒ Day after tomorrow = Saturday.'
+      },
+      {
+        id: 45, subject: 'Analytical', subjectLabel: 'Analytical / IQ', difficulty: 'Easy',
+        question: 'Find the odd one out:',
+        options: ['Apple', 'Banana', 'Carrot', 'Mango'],
+        answer: 2,
+        explanation: 'Carrot is a root vegetable, whereas Apple, Banana, and Mango are fruits.'
+      },
+      {
+        id: 46, subject: 'Analytical', subjectLabel: 'Analytical / IQ', difficulty: 'Easy',
+        question: 'Complete the number pattern: 5, 10, 20, 40, 80, ?',
+        options: ['120', '150', '160', '200'],
+        answer: 2,
+        explanation: 'Each term is doubled (multiplied by 2): 80 × 2 = 160.'
+      },
+      {
+        id: 47, subject: 'Analytical', subjectLabel: 'Analytical / IQ', difficulty: 'Easy',
+        question: 'Pointing to a photograph, Ali said, "He is the son of my grandfather\'s only son." Assuming Ali has no brothers, who is in the photograph?',
+        options: ["Ali's uncle", 'Ali himself', "Ali's cousin", "Ali's father"],
+        answer: 1,
+        explanation: 'Ali\'s grandfather\'s only son is Ali\'s father. His father\'s only son is Ali himself.'
+      },
+      {
+        id: 48, subject: 'Analytical', subjectLabel: 'Analytical / IQ', difficulty: 'Easy',
+        question: 'If 5 + 3 = 28, 6 + 2 = 48, then 7 + 4 = ?',
+        options: ['28', '311', '33', '42'],
+        answer: 1,
+        explanation: 'Pattern concatenates (a - b) and (a + b): (5-3)(5+3)=28; (6-2)(6+2)=48; (7-4)(7+4) = 3 and 11 → 311.'
+      },
+      {
+        id: 49, subject: 'Analytical', subjectLabel: 'Analytical / IQ', difficulty: 'Easy',
+        question: 'Which number replaces the question mark? 3, 9, 27, 81, ?',
+        options: ['162', '243', '324', '729'],
+        answer: 1,
+        explanation: 'Each term is multiplied by 3 (powers of 3): 81 × 3 = 243.'
+      },
+      {
+        id: 50, subject: 'Analytical', subjectLabel: 'Analytical / IQ', difficulty: 'Easy',
+        question: 'If TABLE is coded as 51263, how is BALE coded?',
+        options: ['1263', '5263', '5126', '1623'],
+        answer: 0,
+        explanation: 'Direct letter-to-digit mapping: T=5, A=1, B=2, L=6, E=3 → Wait: B=2, A=1, L=6, E=3? Let\'s check: in TABLE (5-1-2-6-3), T=5, A=1, B=2, L=6, E=3. So BALE = 2163! Let\'s verify: option A is 2163.'
+      },
+      // Medium (51-55)
+      {
+        id: 51, subject: 'Analytical', subjectLabel: 'Analytical / IQ', difficulty: 'Medium',
+        question: 'Complete the series: 3, 7, 15, 31, 63, ?',
+        options: ['121', '127', '131', '135'],
+        answer: 1,
+        explanation: 'Rule: (Previous term × 2) + 1. Thus, (63 × 2) + 1 = 126 + 1 = 127.'
+      },
+      {
+        id: 52, subject: 'Analytical', subjectLabel: 'Analytical / IQ', difficulty: 'Medium',
+        question: 'Five executives (A, B, C, D, E) sit in a row for a conference photo.\n• C sits immediately to the right of D.\n• A is to the immediate left of B.\n• E is at the extreme right end.\nIf D is at the extreme left end, who is sitting in the exact middle position?',
+        options: ['A', 'B', 'C', 'D'],
+        answer: 0,
+        explanation: 'Left to right order: D (1st), C (2nd, right of D), A (3rd, middle), B (4th, right of A), E (5th, extreme right). Thus, A is in the exact middle.'
+      },
+      {
+        id: 53, subject: 'Analytical', subjectLabel: 'Analytical / IQ', difficulty: 'Medium',
+        question: 'If in a certain code language, PENCIL is written as RGPEKN (+2 shift), how is MARKET written?',
+        options: ['OCTMGV', 'NCTMGU', 'OCSMFV', 'NDULHV'],
+        answer: 0,
+        explanation: 'Shift each letter +2 forward: M→O, A→C, R→T, K→M, E→G, T→V → OCTMGV.'
+      },
+      {
+        id: 54, subject: 'Analytical', subjectLabel: 'Analytical / IQ', difficulty: 'Medium',
+        question: 'Find the missing number in the matrix puzzle:\nRow 1:  4  |  5  |  20\nRow 2:  6  |  3  |  18\nRow 3:  7  |  4  |  ?',
+        options: ['21', '24', '28', '35'],
+        answer: 2,
+        explanation: 'In each row, Column 1 × Column 2 = Column 3. Therefore, 7 × 4 = 28.'
+      },
+      {
+        id: 55, subject: 'Analytical', subjectLabel: 'Analytical / IQ', difficulty: 'Medium',
+        question: 'Statements: All managers are leaders. Some leaders are visionary.\nConclusion I: Some managers are visionary.\nConclusion II: All leaders are managers.\nWhich conclusion follows?',
+        options: [
+          'Only Conclusion I follows',
+          'Only Conclusion II follows',
+          'Both Conclusions I and II follow',
+          'Neither Conclusion I nor II follows'
+        ],
+        answer: 3,
+        explanation: 'Since "some leaders are visionary" does not guarantee overlap with "managers", and "all managers are leaders" is not reversible, neither conclusion necessarily follows.'
+      },
+      // Hard (56-60)
+      {
+        id: 56, subject: 'Analytical', subjectLabel: 'Analytical / IQ', difficulty: 'Hard',
+        question: 'Four friends (W, X, Y, Z) play different sports (Tennis, Cricket, Football, Squash) and live in different cities (Karachi, Lahore, Islamabad, Quetta).\n• W does not live in Islamabad or Lahore and does not play Squash.\n• The one who plays Cricket lives in Lahore.\n• X lives in Karachi and plays Tennis.\n• Z plays Football.\nWhere does W live?',
+        options: ['Karachi', 'Lahore', 'Islamabad', 'Quetta'],
+        answer: 3,
+        explanation: 'X lives in Karachi. W does not live in Karachi (taken by X), Islamabad, or Lahore. Therefore, W must live in Quetta.'
+      },
+      {
+        id: 57, subject: 'Analytical', subjectLabel: 'Analytical / IQ', difficulty: 'Hard',
+        question: 'Find the missing number in the sequence: 2, 3, 6, 18, 108, ?',
+        options: ['1080', '1944', '1296', '2160'],
+        answer: 1,
+        explanation: 'Each term from the 3rd onward is the product of the two preceding terms: 2×3=6, 3×6=18, 6×18=108, 18×108 = 1944.'
+      },
+      {
+        id: 58, subject: 'Analytical', subjectLabel: 'Analytical / IQ', difficulty: 'Hard',
+        question: 'If CLOCK is coded as 3-12-15-3-11, how is WATCH coded based on alphabetical positions?',
+        options: ['23-1-20-3-8', '22-1-20-3-8', '23-2-20-4-9', '24-1-19-3-8'],
+        answer: 0,
+        explanation: 'Standard A=1 to Z=26 positions: W=23, A=1, T=20, C=3, H=8 → 23-1-20-3-8.'
+      },
+      {
+        id: 59, subject: 'Analytical', subjectLabel: 'Analytical / IQ', difficulty: 'Hard',
+        question: 'Six books (P, Q, R, S, T, U) are stacked vertically.\n• R is above S but below P.\n• T is below S but above U.\n• Q is immediately above P.\nWhich book is at the very bottom of the stack?',
+        options: ['T', 'S', 'U', 'R'],
+        answer: 2,
+        explanation: 'Ordering from top to bottom: Q > P > R > S > T > U. Book U is at the very bottom.'
+      },
+      {
+        id: 60, subject: 'Analytical', subjectLabel: 'Analytical / IQ', difficulty: 'Hard',
+        question: 'Look at this number pattern: 8, 12, 9, 13, 10, 14, ?',
+        options: ['11', '12', '15', '16'],
+        answer: 0,
+        explanation: 'Alternating step rule: +4, -3, +4, -3, +4, -3 → 14 - 3 = 11.'
+      },
+
+      // ==================== SECTION D: GENERAL KNOWLEDGE & BASIC SCIENCE (20) ====================
+      // Easy (61-70)
+      {
+        id: 61, subject: 'GK', subjectLabel: 'General Knowledge', difficulty: 'Easy',
+        question: 'Who was the founder of Pakistan?',
+        options: ['Allama Iqbal', 'Liaquat Ali Khan', 'Quaid-e-Azam Muhammad Ali Jinnah', 'Sir Syed Ahmed Khan'],
+        answer: 2,
+        explanation: 'Quaid-e-Azam Muhammad Ali Jinnah founded Pakistan on August 14, 1947, and served as its first Governor-General.'
+      },
+      {
+        id: 62, subject: 'GK', subjectLabel: 'General Knowledge', difficulty: 'Easy',
+        question: 'Which planet in our solar system is known as the "Red Planet"?',
+        options: ['Venus', 'Mars', 'Jupiter', 'Saturn'],
+        answer: 1,
+        explanation: 'Mars appears reddish due to iron oxide (rust) prevalent on its surface.'
+      },
+      {
+        id: 63, subject: 'GK', subjectLabel: 'General Knowledge', difficulty: 'Easy',
+        question: 'What is the official national currency of Pakistan?',
+        options: ['Dollar', 'Dinar', 'Pakistani Rupee', 'Rial'],
+        answer: 2,
+        explanation: 'The Pakistani Rupee (PKR) is the official currency issued by the State Bank of Pakistan.'
+      },
+      {
+        id: 64, subject: 'GK', subjectLabel: 'General Knowledge', difficulty: 'Easy',
+        question: 'Which gas is most abundant in Earth\'s atmosphere?',
+        options: ['Oxygen', 'Carbon Dioxide', 'Nitrogen', 'Hydrogen'],
+        answer: 2,
+        explanation: 'Nitrogen makes up approximately 78% of Earth\'s atmosphere, followed by Oxygen at ~21%.'
+      },
+      {
+        id: 65, subject: 'GK', subjectLabel: 'General Knowledge', difficulty: 'Easy',
+        question: 'What is the capital city of Pakistan?',
+        options: ['Karachi', 'Lahore', 'Islamabad', 'Peshawar'],
+        answer: 2,
+        explanation: 'Islamabad became the official federal capital of Pakistan in the 1960s, replacing Karachi.'
+      },
+      {
+        id: 66, subject: 'GK', subjectLabel: 'General Knowledge', difficulty: 'Easy',
+        question: 'Which organ in the human body filters waste products to purify blood?',
+        options: ['Heart', 'Lungs', 'Kidneys', 'Stomach'],
+        answer: 2,
+        explanation: 'The kidneys filter blood to remove metabolic waste and excess fluids as urine.'
+      },
+      {
+        id: 67, subject: 'GK', subjectLabel: 'General Knowledge', difficulty: 'Easy',
+        question: 'What is the boiling point of pure water at standard sea-level atmospheric pressure (in Celsius)?',
+        options: ['90°C', '100°C', '110°C', '120°C'],
+        answer: 1,
+        explanation: 'At 1 atm pressure (sea level), pure water boils at 100°C (212°F).'
+      },
+      {
+        id: 68, subject: 'GK', subjectLabel: 'General Knowledge', difficulty: 'Easy',
+        question: 'Who wrote the lyrics of Pakistan\'s national anthem ("Qaumi Taranah")?',
+        options: ['Allama Iqbal', 'Hafeez Jalandhari', 'Faiz Ahmed Faiz', 'Ahmed G. Chagla'],
+        answer: 1,
+        explanation: 'Hafeez Jalandhari wrote the lyrics in 1952, while Ahmed G. Chagla composed the musical score.'
+      },
+      {
+        id: 69, subject: 'GK', subjectLabel: 'General Knowledge', difficulty: 'Easy',
+        question: 'Which is the largest continent on Earth by land area?',
+        options: ['Africa', 'North America', 'Asia', 'Antarctica'],
+        answer: 2,
+        explanation: 'Asia is the largest continent both by land area (~44.58 million km²) and population.'
+      },
+      {
+        id: 70, subject: 'GK', subjectLabel: 'General Knowledge', difficulty: 'Easy',
+        question: 'What scientific instrument is used to measure atmospheric pressure?',
+        options: ['Thermometer', 'Barometer', 'Hygrometer', 'Anemometer'],
+        answer: 1,
+        explanation: 'A barometer measures atmospheric pressure; a thermometer measures temperature, hygrometer humidity, and anemometer wind speed.'
+      },
+      // Medium (71-75)
+      {
+        id: 71, subject: 'GK', subjectLabel: 'General Knowledge', difficulty: 'Medium',
+        question: 'In which year was the first Constitution of the Islamic Republic of Pakistan enforced?',
+        options: ['1947', '1956', '1962', '1973'],
+        answer: 1,
+        explanation: 'Pakistan\'s first constitution was enforced on March 23, 1956, declaring the country an Islamic Republic.'
+      },
+      {
+        id: 72, subject: 'GK', subjectLabel: 'General Knowledge', difficulty: 'Medium',
+        question: 'What is the SI unit of electric current?',
+        options: ['Volt', 'Ohm', 'Ampere', 'Watt'],
+        answer: 2,
+        explanation: 'Ampere (A) is the SI unit of electric current. Volt measures potential difference, Ohm resistance, and Watt power.'
+      },
+      {
+        id: 73, subject: 'GK', subjectLabel: 'General Knowledge', difficulty: 'Medium',
+        question: 'Which high-altitude mountain pass connects Pakistan\'s Gilgit-Baltistan region with China?',
+        options: ['Khyber Pass', 'Bolan Pass', 'Khunjerab Pass', 'Lowari Pass'],
+        answer: 2,
+        explanation: 'Khunjerab Pass (elevation 4,693 m) in the Karakoram Mountains connects Pakistan and China via the Karakoram Highway.'
+      },
+      {
+        id: 74, subject: 'GK', subjectLabel: 'General Knowledge', difficulty: 'Medium',
+        question: 'What is the primary chemical hydrocarbon component of natural gas (Sui Gas / CNG)?',
+        options: ['Ethane', 'Methane', 'Propane', 'Butane'],
+        answer: 1,
+        explanation: 'Natural gas consists predominantly (85–95%) of Methane (CH₄).'
+      },
+      {
+        id: 75, subject: 'GK', subjectLabel: 'General Knowledge', difficulty: 'Medium',
+        question: 'Who served as the first Prime Minister of Pakistan?',
+        options: ['Liaquat Ali Khan', 'Quaid-e-Azam Muhammad Ali Jinnah', 'Khawaja Nazimuddin', 'Iskander Mirza'],
+        answer: 0,
+        explanation: 'Nawabzada Liaquat Ali Khan served as Pakistan\'s first Prime Minister from August 1947 until October 1951.'
+      },
+      // Hard (76-80)
+      {
+        id: 76, subject: 'GK', subjectLabel: 'General Knowledge', difficulty: 'Hard',
+        question: 'The concentration of ozone in the Earth\'s stratosphere is standardly measured in which units?',
+        options: ['Decibels', 'Dobson units', 'Diopters', 'Pascals'],
+        answer: 1,
+        explanation: 'Dobson Units (DU) measure the total column density of atmospheric ozone above a given point on Earth.'
+      },
+      {
+        id: 77, subject: 'GK', subjectLabel: 'General Knowledge', difficulty: 'Hard',
+        question: 'Which international organization has its headquarters in Geneva, Switzerland, and regulates global trade rules?',
+        options: ['World Bank', 'International Monetary Fund (IMF)', 'World Trade Organization (WTO)', 'UNESCO'],
+        answer: 2,
+        explanation: 'The World Trade Organization (WTO) is headquartered in Geneva, Switzerland. (World Bank and IMF are in Washington, D.C.; UNESCO is in Paris).'
+      },
+      {
+        id: 78, subject: 'GK', subjectLabel: 'General Knowledge', difficulty: 'Hard',
+        question: 'What is the approximate escape velocity required for an object to break free from Earth\'s gravitational field?',
+        options: ['7.9 km/s', '11.2 km/s', '15.4 km/s', '24.1 km/s'],
+        answer: 1,
+        explanation: 'Earth\'s surface escape velocity is approximately 11.2 km/s (about 40,270 km/h).'
+      },
+      {
+        id: 79, subject: 'GK', subjectLabel: 'General Knowledge', difficulty: 'Hard',
+        question: 'Which historic agreement was signed in September 1960 through World Bank mediation to resolve river water disputes between India and Pakistan?',
+        options: ['Tashkent Declaration', 'Shimla Agreement', 'Indus Waters Treaty', 'Simla Deputation'],
+        answer: 2,
+        explanation: 'The Indus Waters Treaty was signed on September 19, 1960, in Karachi by Ayub Khan and Jawaharlal Nehru.'
+      },
+      {
+        id: 80, subject: 'GK', subjectLabel: 'General Knowledge', difficulty: 'Hard',
+        question: 'Which vitamin is water-soluble and plays an essential role in collagen synthesis and immune antioxidant defense?',
+        options: ['Vitamin A', 'Vitamin D', 'Vitamin C', 'Vitamin K'],
+        answer: 2,
+        explanation: 'Vitamin C (Ascorbic Acid) is water-soluble and vital for collagen synthesis and tissue repair. Vitamins A, D, and K are fat-soluble.'
+      }
+    ];
+
+    // Ensure Q50 option A matches exact digit mapping (B=2, A=1, L=6, E=3 -> 2163)
+    QUESTION_BANK[49].options[0] = '2163';
+
+    // ==================== EXAM STATE ====================
+    let activeQuestions = [];
+    let currentIndex = 0;
+    let userAnswers = {};      // { questionId: optionIndex }
+    let markedForReview = {};  // { questionId: boolean }
+    let timerInterval = null;
+    let totalSecondsAllowed = 120 * 60;
+    let secondsRemaining = 120 * 60;
+    let candidateName = 'Kashfi Zaidi';
+    let candidateRoll = 'BU-2026';
+    let selectedMode = 'ALL';
+
+    // ==================== START & NAVIGATION LOGIC ====================
+    function startExam() {
+      const nameInput = document.getElementById('input-name').value.trim();
+      const rollInput = document.getElementById('input-roll').value.trim();
+      selectedMode = document.getElementById('input-mode').value;
+
+      candidateName = nameInput || 'Kashfi Zaidi';
+      candidateRoll = rollInput || 'BU-CBT-2026';
+// ... existing code ... -->
